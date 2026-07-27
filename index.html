@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaOracle AI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#030712] text-slate-100 min-h-screen flex flex-col items-center justify-center p-4 font-sans relative overflow-hidden">
+  
+  <div class="absolute top-[-10%] left-[-10%] w-[350px] h-[350px] bg-purple-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+  <div class="absolute bottom-[-10%] right-[-10%] w-[350px] h-[350px] bg-emerald-500/15 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="w-full max-w-md relative z-10 space-y-5">
+    
+    <header class="flex items-center justify-between p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl shadow-2xl">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-emerald-400 p-[1px]">
+          <div class="w-full h-full bg-[#030712] rounded-[11px] flex items-center justify-center text-sm">🔮</div>
+        </div>
+        <div>
+          <h1 class="text-base font-bold tracking-tight text-white">AlphaOracle <span class="text-xs font-mono text-purple-400">v2.6</span></h1>
+          <p class="text-[10px] text-slate-400 font-mono">ON-CHAIN PREDICTION ENGINE</p>
+        </div>
+      </div>
+      <span class="text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+        Solana
+      </span>
+    </header>
+
+    <div class="p-5 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-2xl shadow-2xl space-y-4">
+      <div>
+        <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Market or Prediction Query</label>
+        <input id="queryInput" type="text" placeholder="e.g. SOL at $300, BTC $100k..." class="w-full bg-white/[0.03] border border-white/10 rounded-2xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-purple-500">
+      </div>
+      <button onclick="generateAlpha()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-emerald-400 text-slate-950 font-bold text-sm hover:opacity-90">
+        Generate Intelligence ⚡
+      </button>
+    </div>
+
+    <div id="resultBox" class="hidden p-5 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-2xl shadow-2xl space-y-4">
+      <div class="space-y-2">
+        <span class="text-[10px] font-mono tracking-widest text-emerald-400 uppercase">Free Preview & Social Hook</span>
+        <pre id="freeText" class="text-xs text-slate-300 bg-black/40 p-4 rounded-2xl border border-white/5 whitespace-pre-wrap font-sans"></pre>
+      </div>
+
+      <div id="paywall" class="border border-purple-500/30 bg-purple-500/10 rounded-2xl p-6 text-center space-y-3">
+        <div class="text-2xl">🔒</div>
+        <h3 class="text-sm font-bold text-white">Unlock Premium Alpha Analysis</h3>
+        <p class="text-[11px] text-slate-400">Probability %, core catalysts & Polymarket execution play.</p>
+        <button onclick="unlockAlpha()" class="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-emerald-400 text-slate-950 font-bold text-xs uppercase">
+          Unlock Alpha for 0.01 SOL
+        </button>
+      </div>
+
+      <div id="premiumBox" class="hidden border border-emerald-500/30 bg-emerald-500/5 rounded-2xl p-4">
+        <span class="text-[10px] font-mono text-emerald-400 uppercase block mb-1">🎯 Unlocked Premium Alpha</span>
+        <pre id="premiumText" class="text-xs text-slate-200 bg-black/50 p-4 rounded-xl border border-emerald-500/20 whitespace-pre-wrap font-sans"></pre>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function generateAlpha() {
+      const q = document.getElementById('queryInput').value;
+      if(!q) return;
+      document.getElementById('resultBox').classList.remove('hidden');
+      document.getElementById('freeText').innerText = `🔮 MARKET ANALYSIS:\n• The Hook: ${q} is experiencing massive liquidity inflows.\n• Sentiment: Bullish divergence.\n\n🔑 VIRAL POST:\nSmart money is positioning on ${q}. Don't get liquidated. 🔮👇`;
+      document.getElementById('premiumText').innerText = `🎯 PREMIUM ALPHA:\n• Probability: 84% Chance.\n• Core Catalyst: Supply deficit & ETF accumulation.\n• The Play: Buy YES on Polymarket below $0.65.`;
+    }
+
+    function unlockAlpha() {
+      document.getElementById('paywall').classList.add('hidden');
+      document.getElementById('premiumBox').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
